@@ -1,28 +1,28 @@
 <div class="login-container">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          <mat-icon>account_circle</mat-icon>
-          <span>ACCESO AL SISTEMA</span>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <form>
-          <mat-form-field appearance="fill" >
-            <mat-label>Usuario</mat-label>
-            <input matInput placeholder="Usuario" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Contraseña</mat-label>
-            <input matInput type="password" placeholder="Contraseña" required>
-          </mat-form-field>
-          
-        </form>
-        <button mat-raised-button color="primary" (click)="onLogin()">Iniciar Sesión</button>
-   
-      </mat-card-content>
-      <mat-card-actions>
-        <a mat-button href="#">¿No tienes una cuenta? Regístrate</a>
-      </mat-card-actions>
-    </mat-card>
-  </div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>account_circle</mat-icon>
+        <span>ACCESO AL SISTEMA</span>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field appearance="fill" >
+          <mat-label>Usuario</mat-label>
+          <input matInput placeholder="email" required [(ngModel)]="email" name="email">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" placeholder="password" required [(ngModel)]="password" name="password">
+        </mat-form-field>
+        
+      </form>
+      <button mat-raised-button color="primary" (click)="onLogin()">Iniciar Sesión</button>
+ 
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-button href="#">¿No tienes una cuenta? Regístrate</a>
+    </mat-card-actions>
+  </mat-card>
+</div>

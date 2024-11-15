@@ -1,0 +1,27 @@
+<app-header></app-header><app-footer></app-footer>
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Avatar</th>
+        <th>Creation Date</th>
+        <th>Updated Date</th>
+      </tr>
+    </thead>
+
+    
+    <tbody>
+      <tr *ngFor="let user of datos">
+        <td>{{ user.id }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.role }}</td>
+        <td><img [src]="user.avatar" alt="{{ user.name }}" width="50"></td>
+        <td>{{ user.creationAt }}</td>
+        <td>{{ user.updatedAt }}</td>
+      </tr>
+    </tbody>
+  </table>
