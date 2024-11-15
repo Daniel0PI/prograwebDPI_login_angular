@@ -1,3 +1,27 @@
+# DESARROLLO DE LA PRACTICA 
+-Pacheco Infanzon Daniel 
+## PRE-REQUISITOS DEL ENTORNO
+
+# Angular CLI instalado en su máquina 
+ npm install -g @angular/cli
+ ![image](https://github.com/user-attachments/assets/ef3c7698-362a-4bfe-a986-c5b9e23d04ae)
+
+# API a utilizar:
+Utilizaremos la API pública: https://api.escuelajs.co/api/v1/users
+![Captura de pantalla 2024-11-14 100412](https://github.com/user-attachments/assets/ded78abc-eda5-4dd3-a094-b8804a076c69)
+
+
+## Parte 1: Crear el Proyecto Angular
+#ng new login-api-DPI
+Desde la terminal ingresando en la carpeta del proyecto ejecutaremos el comando para crear un proyceto nuevo de angular
+
+
+## Parte 2: Crear el Servicio para Consumir la API
+debemos de crear un servicio para poder consumir la api 
+# ng generate service services/user
+Abre el archivo src/app/services/user.service.ts y configura el servicio de la
+siguiente forma:
+
 
 # DESARROLLO DE LA PRACTICA 
 -Pacheco Infanzon Daniel 
@@ -11,89 +35,56 @@ Utilizaremos la API pública: https://api.escuelajs.co/api/v1/users
 ## Parte 1: Crear el Proyecto Angular
 #ng new consumo-api-DPI
 Desde la terminal ingresando en la carpeta del proyecto ejecutaremos el comando para crear un proyceto nuevo de angular
-![Captura de pantalla 2024-11-14 093627](https://github.com/user-attachments/assets/afdf4e64-82c1-4756-be56-9acc94fa19eb)
-![Captura de pantalla 2024-11-14 093906](https://github.com/user-attachments/assets/03a5540e-bb64-48cb-b962-8f617bf95c77)
 
-## Parte 2: Crear el Servicio para Consumir la API
+## parte 2 creamos el servicio
 debemos de crear un servicio para poder consumir la api 
 # ng generate service services/user
 Abre el archivo src/app/services/user.service.ts y configura el servicio de la
 siguiente forma:
-![Captura de pantalla 2024-11-14 093627](https://github.com/user-attachments/assets/0a178e7f-19f6-435b-b54c-1717de33473b)
 
-● Pregunta: ¿Qué hace el método getUsers en este servicio? getDatos hace la consulta a la api, por medio de htt.get obtiene la estructura de los datos, por eso se crea user.model.ts 
-## Parte 3: Configurar HttpClientModule
-Abre src/app/app.ts y agrega HttpClientModule en los imports para que Angular pueda hacer peticiones HTTP.
-debes de importar los paquetes 
-# import { importProvidersFrom } from '@angular/core';
-# import { HttpClientModule } from '@angular/common/http';
-y declarar el HtppClientModule dentro del importProvidersForm 
+![image](https://github.com/user-attachments/assets/83821295-cc5f-4f2e-9901-dbf1876dba4c)
+para facilitarnos el trabajo podemos crear un modelo de alumno que contenga cada uno de los campos de los registros antes mencionados dentro del api 
+![image](https://github.com/user-attachments/assets/11cf1d79-e8ac-4dc7-ab43-04bf4a6d4983)
 
-![Captura de pantalla 2024-11-14 094815](https://github.com/user-attachments/assets/6e2590d8-5b51-44af-bdd4-59e5e3945d8b)
+## parte 3 creamos el componente de login
+ng generate componet "nombre del componente "
+modificamos el html para poder poner la estructura 
+ 
+![image](https://github.com/user-attachments/assets/8a48e0e8-b0bc-4b91-8eda-7e2b2f8f0115)
 
-## Parte 4: Crear el Componente de la Tabla de Usuarios
-# ng generate component components/user-list
-creamos el componente con el comando, nos generara 4 archivos, que modificaremos
-![Captura de pantalla 2024-11-14 095253](https://github.com/user-attachments/assets/cdf8c1e1-738b-457e-8e31-88c896949af2)
-![Captura de pantalla 2024-11-14 095108](https://github.com/user-attachments/assets/8ceddd42-1613-4c52-bb21-aa20037fd166)
+declaramos un metodo que al dar click al boton nos mande una funcion, que sera recibida dentro de la configuracion, obtenemos los datos de los componentes, se manda a llamar, se crea el servicio y lo importamos
 
+![image](https://github.com/user-attachments/assets/743822b0-65da-4980-83e9-dddf64103a00)
+de igual manera se importa los componentes de material design 
+![image](https://github.com/user-attachments/assets/060a7f4e-8eed-4552-8cd3-e93213927eb9)
 
-Pregunta: ¿Qué función cumple el método ngOnInit en el componente UserListComponent?
-El método ngOnInit en el componente ApisComponent cumple la función de inicializar el componente y realizar tareas de configuración una vez que el componente ha sido creado. En este caso específico, ngOnInit se utiliza para realizar una llamada al servicio AlumnosService y obtener los datos de los usuarios cuando el componente se inicializa.
+esta validacion nos permite recorrer la api, validando cada uno de los alumnos y viendo si hacen match alguno de los registros, de ser correcto nos va a redireccionar a la vita principal 
+![image](https://github.com/user-attachments/assets/8dc9f7fa-821d-4873-ba0f-9829e3f6b2cc)
 
+## parte 4 
+configuramos el router para poder renderizar los componentes, indicamos las ruta a renderizar, para esto antes tenemos  que importar los componentes 
 
-## Parte 5: Crear la Vista para Mostrar los Datos en una Tabla
-insertamos un html que contenga los campos necesarios, con una sentencia *ngFor que nos servira para poder iterar en la lista de datos del Api 
-si deseamos añadir paginacion es necesario ejecutar el comando de material design 
-# ng add @angular/material
+ ![image](https://github.com/user-attachments/assets/09e60dcb-399e-409e-af2d-cc3a19b58cc3)
+con el comnado <router-outle> podemos indicar que renderice todo lo que hay dentro de nuestro router
+![image](https://github.com/user-attachments/assets/8e5324fe-d4d3-43c1-ac52-336ba6a01036)
+ ## parte 5 Ejecucion 
 
-![image](https://github.com/user-attachments/assets/02ea9ad0-b1e7-4911-911e-fe1cb521f12b)
-importaremos los componentes dentro de nuestro TS del componente base 
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatInputModule } from '@angular/material/input';
-import { AlumnosService } from '../alumnos.service';
-import { User } from '../user.model';
- ![image](https://github.com/user-attachments/assets/13707f57-bf81-478f-be5d-b87479ba919c)
-
-Pregunta: ¿Para qué sirve el bucle *ngFor en Angular? Explica cómo se utiliza en este ejemplo. El bucle *ngFor en Angular es una directiva estructural que permite iterar sobre listas o arrays en una plantilla HTML, generando dinámicamente un elemento HTML por cada elemento en la lista. 
- en este caso accede a la api, pues es un archvo con los datos de alumnos, itera sobre esa lista y va guardando los datos dentro de un usuario para poder mostrarlos en la vista 
+ para poder ver nuestra aplicacion deberemos aplicar el comando 
+ # ng serve 
+ ![image](https://github.com/user-attachments/assets/b213542e-b24e-47a6-a07a-163cf7dca5fb)
 
 
-## Parte 6: Integrar el Componente en la Aplicación
+## pagina de login 
+![image](https://github.com/user-attachments/assets/ae46d825-8392-43da-89e2-51d9d158177b)
+ # inicio incorrecto 
+![image](https://github.com/user-attachments/assets/d31a1525-72c6-46dc-8846-ec0cb12d2a88)
 
+ # inicio correcto
+ 
+ ![image](https://github.com/user-attachments/assets/23c67e03-4a7e-4843-b3f2-ee8360fadf2c)
 
-configuraremos el router importando el componente  y creando su ruta 
-![image](https://github.com/user-attachments/assets/c0731579-0a47-4ee9-b7b1-67b1d81a84ef)
-para poder renderizar y mostrar el componente es necesario poner <app-outlet >  que toma lo que hay en el router y lo muestra
-![image](https://github.com/user-attachments/assets/9ac1b654-ac13-47d5-9b26-7053f9451702)
-
-
-## Parte 7: Ejecutar el Proyecto
-dentro de la carpeta con una terminal ocuparemos el comando 
-#ng serve 
-nos creara un locallhost y podremos acceder a nuestra vista 
-![image](https://github.com/user-attachments/assets/d5a96514-a837-4ae9-a6e4-9f1c1a0b151d)
-
-## PREGUNTAS 
-
-1. ¿Qué ventajas tiene el uso de servicios en Angular para el consumo de APIs?
-nos permite reutilizar código, informacion y datos que alguna persona ya creo, para poder hacer ejemplos, el consumo de apis es aplicable a diversos componentes, facil reutilizacion de codigo, inyección de dependencias y pruebas aisladaas 
-
-2. ¿Por qué es importante separar la lógica de negocio de la lógica de presentación?
-que podemos dar mantenimiento mas fácil, es escalable, además permite reutilizar la lógica y no estar definiéndola cada vez que utilicemos un componente
-
-
-3. ¿Qué otros tipos de datos o APIs podrías integrar en un proyecto como este?
-APIs de autenticación para permisos y acceso.
-APIs de geolocalización para mostrar mapas.
-APIs de datos en tiempo real para notificaciones y actualizaciones.
-APIs de servicios externos como pagos y redes sociales.
-APIs de análisis de datos para estadísticas y métricas.
-
-
-
-
+# redireccion a la pagina de inicio 
+![image](https://github.com/user-attachments/assets/d20896ce-eea2-43a2-9f61-ab40e3eec0b3)
 
 # ConsumoApiDPI
 
